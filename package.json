@@ -1,0 +1,20 @@
+{
+  "name": "cyklusmatch",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js",
+    "export": "node scripts/export.js",
+    "export:unity-icons": "node scripts/export-unity-icons.mjs",
+    "test:browser": "node scripts/run-browser-checks.mjs",
+    "test:parity-fixtures": "node scripts/export-unity-fixtures.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

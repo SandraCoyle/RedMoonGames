@@ -1,0 +1,5 @@
+{
+  "name": "RedMoonGames.Runtime",
+  "rootNamespace": "RedMoonGames",
+  "references": ["RedMoonGames.Core"]
+}

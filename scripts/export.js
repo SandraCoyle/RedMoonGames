@@ -1,0 +1,12 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+const root=new URL('../',import.meta.url);
+const read=name=>readFile(new URL(name,root),'utf8');
+let html=await read('index.html');
+const css=(await read('style.css')).replace(/^@import[^;]+;\s*/, '');
+const engine=(await read('engine.js')).replace(/export /g,'');
+const profile=(await read('profile.js')).replace(/export /g,'');
+const game=(await read('game.js')).replace(/^import[^;]+;\s*/gm,'');
+html=html.replace('<link rel="stylesheet" href="/style.css">',()=>`<style>${css}</style>`).replace('<script type="module" src="/game.js"></script>',()=>`<script type="module">${engine}\n${profile}\n${game}</script>`).replace('href="/" aria-label="Rød Måne hjem"','href="" aria-label="Rød Måne hjem"');
+await mkdir(new URL('dist/',root),{recursive:true});
+await writeFile(new URL('dist/Cyklusmatch.html',root),html);
+console.log('Offline-spil gemt i dist/Cyklusmatch.html');

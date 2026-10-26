@@ -1,0 +1,28 @@
+name: Game checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  web-and-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+      - run: npm run export
+      - name: Browser checks
+        run: |
+          export CHROMIUM_PATH="$(node -p "require('playwright').chromium.executablePath()")"
+          npm run test:browser
+      - run: node scripts/export-unity-fixtures.mjs
+      - run: dotnet run --project tests/unity-core/UnityCoreChecks.csproj

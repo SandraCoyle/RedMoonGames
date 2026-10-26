@@ -1,0 +1,6 @@
+{
+  "name": "RedMoonGames.Editor",
+  "rootNamespace": "RedMoonGames.Editor",
+  "references": ["RedMoonGames.Core", "RedMoonGames.Runtime"],
+  "includePlatforms": ["Editor"]
+}

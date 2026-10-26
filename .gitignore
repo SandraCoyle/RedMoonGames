@@ -1,0 +1,28 @@
+# Unity-generated local state
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Bb]uild/
+/[Bb]uilds/
+/MemoryCaptures/
+/Recordings/
+.vs/
+.idea/
+*.csproj
+*.sln
+*.slnx
+*.user
+*.pidb
+*.booproj
+*.suo
+sysinfo.txt
+# Browser / test local state
+node_modules/
+test-results/
+playwright-report/
+.DS_Store
+/tests/unity-core/bin/
+/tests/unity-core/obj/
+!/tests/unity-core/UnityCoreChecks.csproj

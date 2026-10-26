@@ -1,0 +1,6 @@
+{
+  "name": "RedMoonGames.Core",
+  "rootNamespace": "RedMoonGames",
+  "references": [],
+  "noEngineReferences": true
+}
